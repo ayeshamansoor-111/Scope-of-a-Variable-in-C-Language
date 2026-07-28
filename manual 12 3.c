@@ -1,0 +1,32 @@
+#include <stdio.h> 
+int passmarks = 50; 
+int totalprocessed = 0; 
+void processStudent(char name [], int marks); 
+int main() {
+    printf("------------Student Result------------\n"); 
+ processStudent("Ayesha", 77); 
+ processStudent("Fatima", 80); 
+ processStudent("Ali Raza", 87); 
+ printf("The total number of students processed are: %d\n", totalprocessed); 
+ return 0; 
+}
+void processStudent(char name [], int marks) {
+    char grade; 
+    if (marks >= 90) {
+        grade = 'A'; 
+    } else if (marks >= 75) {
+        grade = 'B'; 
+    } else if (marks >= 60) {
+        grade = 'C'; 
+    } else if (marks >= 50) {
+        grade = 'D'; 
+    } else if (marks < 50) {
+        grade = 'F'; 
+    }
+    totalprocessed++; 
+    if (marks >= passmarks) {
+        printf("Name: %-7s   Marks: %-3d   Grade: %c   Result: PASS\n", name, marks, grade); 
+    } else {
+        printf("Name: %-7s   Marks: %-3d   Grade: %c   Result: FAIL\n", name, marks, grade); 
+    }
+}
